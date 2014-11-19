@@ -128,6 +128,9 @@ public class NotiphiListFragment extends  Fragment{
 			String result = ClientUtility.notificationCenterResult(mContext, startPoint,notificationIdentifier); // 0 for all notification and 1 for saved one
 			Log.d(TAG, " Result received from server is = " + result);
 			try{
+				if(result == null){
+					return false;
+				}
 				JSONObject promoJsonObject = new JSONObject(result);
 //				if(promoJsonObject.get("status").toString().equalsIgnoreCase("more_data")){
 //					moreResult = true;

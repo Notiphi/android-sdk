@@ -23,7 +23,7 @@ Unzip the files (if downloaded as a zip) and then add the files in jars director
 are using Eclipse then you could use the following steps if you are unfamiliar with the process of adding jar files.
 
 1. Select your project
-2. Copy all the jar file from jars directory and paste it into libs directory of your project
+2. Copy **NotiphiSDK.jar**, **android-async-http-1.4.3.jar** and **gcm.jar** the jar file from jars directory and paste it into libs directory of your project.
 3. Add "notiphi_app_token" and  notiphi_app_secret provided by us, in string.xml file inside res->values directory of your android project
 4. Copy notiphi_notification_icon.png from each directory in Drawables and paste it into respective each drawable directory of your android project
 5. Copy all xml files from layout folder and paste it into layout folder of your android project
@@ -124,7 +124,10 @@ Inside the onCreate method of your Main Activity, add the following lines of cod
 
 ```
 Context context = this;
-NotiphiSession.init(context,1);
+try {
+    NotiphiSession.init(context, 1);
+} catch (Exception e) {
+}
 ```
 
 ####Resource files

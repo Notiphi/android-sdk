@@ -118,6 +118,14 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
     	<category android:name="YOUR_PACKAGE_NAME"/>
     </intent-filter>
 </receiver>
+<receiver android:name="com.notikum.notifypassive.receivers.NotiphiGCMBroadCastReceiver"
+      android:permission="com.google.android.c2dm.permission.SEND" >
+        <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                
+            <category android:name="com.example.notiphijartest" />
+        </intent-filter>
+</receiver>
 <receiver android:name="com.notikum.notifypassive.receivers.NetworkStateChangeReceiver">
     <intent-filter >
        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>

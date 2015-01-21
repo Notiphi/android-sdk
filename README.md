@@ -146,7 +146,7 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
      <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 ```
 	
-####Main Activity
+####Initialize the SDK In the MainActivity class.
 
 After the configuration changes, in your main Activity of your application  add this import statement
 

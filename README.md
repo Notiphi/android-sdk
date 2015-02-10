@@ -11,6 +11,7 @@
 4. [Configure SDK settings in the Your project's AndroidManifest.xml file.](#configure-sdk-settings-in-the-your-projects-androidmanifestxml-file)
 5. [Initialize the SDK in the MainActivity class.](#initialize-the-sdk-in-the-mainactivity-class)
 6. [Passing Information to SDK.](#passing-information-to-sdk)
+7. [Handling Client payload](#handling-client-payload)
 
 [Notiphi permission requirements](#notiphi-permission-requirements)
 
@@ -206,6 +207,14 @@ new NotiphiEventReceiver(jsonObject, context);
 ```
 
 You are done with event capture implementation, now events from your app will be captured.
+
+####Handling Client payload
+
+To launch the activity with an intent containing the message client payload. Set up a notification recipient activity class (we'll provide this activity through our Dashboard) that launch when the notificatoin recieve a tap.
+```
+String mClientPayload =  getIntent().getStringExtra("client_data");
+```
+make sure you have this activty in your AndroidManifest.xml file.
 
 ####Notiphi permission requirements
 

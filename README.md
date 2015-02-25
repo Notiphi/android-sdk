@@ -290,19 +290,19 @@ why we need each of these permissions.
         <td>Required to get DeviceId of phone.
         </td>
      </tr>
-</table>
-
-#####Good to have permissions (Optional)
-
-<Table>
      
-     <tr>
+      <tr>
         <td>“android.permission.WAKE_LOCK”
         </td>
         <td>Required so the application can keep the processor
             from sleeping when a message is received.
         </td>
      </tr>
+</table>
+
+#####Good to have permissions (Optional)
+
+<Table>
      
      <tr>
         <td>"android.permission.VIBRATE"

@@ -1,7 +1,7 @@
 [Notiphi](http://www.notiphi.com) Android SDK
 ===================
 
-[Notiphi SDK (www.notiphi.com)](http://www.notiphi.com) allows you to monetise your Android apps (2.3.3 and above) by receiving contextual notifications. This guide will help you integrate it in a few minutes. Following steps outline the integration process.
+[Notiphi SDK (www.notiphi.com)](http://www.notiphi.com) allows you to monetize your Android apps (2.3.3 and above) by receiving contextual notifications. This guide will help you integrate it in a few minutes. Following steps outline the integration process.
 
 ### Steps to integrate the sdk to your Android project.
 
@@ -35,18 +35,18 @@ are using Eclipse then you could use the following steps if you are unfamiliar w
 
 #### Add SDK jar files to libs folder.
 
-Copy **NotiphiSDK.jar**, **android-async-http-1.4.3.jar** and **gcm.jar** the jar file from jars directory and paste it into libs directory of your project.
+Copy **NotiphiSDK.jar**, **android-async-http-1.4.3.jar** and **gcm.jar** jar files from /jars directory and paste them into /libs directory of your project.
 
 
 ####Set the SDK “Token and Secret” in Your project's string.xml file.
 
-Go to your project's root folder and open res folder. Then open values folder. Here you should find strings.xml file. Add the following line to it.
-The app_token and app_secret is provided by us on registration of your app with us. As of now there is no online process and you need to contact us at dev-support@notiphi.com to get these.
+Go to your project's root folder and open /res folder. Then open /values folder. Here you should find strings.xml file. Add the following lines to it.
 
 ```
 <string name="notiphi_app_token">TOKEN_GIVEN_BY_NOTIPHI_SEPARATELY</string>
 <string name="notiphi_app_secret">APP_SECRET_GIVEN_BY_NOTIPHI_SEPARATELY</string>
 ```
+Note: The app_token and app_secret is provided by us on registration of your app with us. As of now there is no online process and you need to contact us at dev-support@notiphi.com to get these.
 
 If you are already sending your own push notifications then slight more configuration is required. Please add the following line to string.xml file of your project
 
@@ -159,7 +159,7 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
      <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 ```
 	
-####Initialize the SDK In the MainActivity class.
+####Initialize the SDK in the MainActivity class.
 
 After the configuration changes, in your main Activity of your application  add this import statement
 

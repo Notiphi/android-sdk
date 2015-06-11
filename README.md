@@ -7,11 +7,12 @@
 
 1. [Clone the github repository or download the zipped file\.](#setup)
 2. [Add SDK jar files to libs folder\.](#add-sdk-jar-files-to-libs-folder)
-3. [Set the SDK “Token and Secret” in Your project's string.xml file.](#set-the-sdk-token-and-secret-in-your-projects-stringxml-file)
-4. [Configure SDK settings in the Your project's AndroidManifest.xml file.](#configure-sdk-settings-in-the-your-projects-androidmanifestxml-file)
-5. [Initialize the SDK in the MainActivity class.](#initialize-the-sdk-in-the-mainactivity-class)
-6. [Passing Information to SDK.](#passing-information-to-sdk)
-7. [Handling Client payload](#handling-client-payload)
+3. [Set the SDK “Token and Secret” in your project's string.xml file.](#set-the-sdk-token-and-secret-in-your-projects-stringxml-file)
+4. [Add notiphi resources in your project's res folder](#add-notiphi-resources-in-your-projects-res-folder)
+5. [Configure SDK settings in the your project's AndroidManifest.xml file.](#configure-sdk-settings-in-the-your-projects-androidmanifestxml-file)
+6. [Initialize the SDK in the MainActivity class.](#initialize-the-sdk-in-the-mainactivity-class)
+7. [Passing Information to SDK.](#passing-information-to-sdk)
+8. [Handling Client payload](#handling-client-payload)
 
 [Notiphi permission requirements](#notiphi-permission-requirements)
 
@@ -63,6 +64,15 @@ b) GCM using Google Play Service.
 ```
 gcm.register(YOUR_GCM_SENDER_ID+","+Constants.GCM_SENDER_ID);
 ```
+To ignore Notiphi GCM meesage, add following code snippet to your class which gets your GCM message.
+```
+if(intentData.getStringExtra("is_notiphi") != null){
+return;
+}
+```
+####Add notiphi resources in your project's res folder.
+a) Copy notiphi_notification_icon.png from each directory in Drawables and paste it into respective each drawable directory of your android project.    
+b) Copy all xml files from layout folder and paste it into layout folder of your android project.  
 
 ####Configure SDK settings in the Your project's AndroidManifest.xml file.
 
@@ -124,7 +134,7 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
         <intent-filter>
             <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 
-            <category android:name="com.example.notiphijartest" />
+            <category android:name="YOUR_PACKAGE_NAME" />
         </intent-filter>
 </receiver>
 <receiver android:name="com.notikum.notifypassive.receivers.NetworkStateChangeReceiver">
@@ -139,14 +149,15 @@ After adding the JARs into your project, modify your AndroidManifest.xml file us
             </intent-filter>
  </receiver>
 
-<service android:name="com.notikum.notifypassive.services.GCMIntentService"></service>
-<service android:name="com.notikum.notifypassive.services.NotiphiService"></service>
-<service android:name="com.notikum.notifypassive.services.GCMInformService"></service>
-<service android:name="com.notikum.notifypassive.NewApiActivityRecognization"></service>
-<service android:name="com.notikum.notifypassive.NotiphiClusterSyncIntentService"></service>
-<service android:name="com.notikum.notifypassive.services.DiscardedNotificationService"></service>
-<service android:name="com.notikum.notifypassive.services.NotificationInformService" > </service>
-<service android:name="com.notikum.notifypassive.services.SendBulkDataIntentService"></service>
+<service android:name="com.notikum.notifypassive.services.GCMIntentService"/>
+ <service android:name="com.notikum.notifypassive.NotiphiGCMIntentService"/> 
+<service android:name="com.notikum.notifypassive.services.NotiphiService"/>
+<service android:name="com.notikum.notifypassive.services.GCMInformService"/>
+<service android:name="com.notikum.notifypassive.NewApiActivityRecognization"/>
+<service android:name="com.notikum.notifypassive.NotiphiClusterSyncIntentService"/>
+<service android:name="com.notikum.notifypassive.services.DiscardedNotificationService"/>
+<service android:name="com.notikum.notifypassive.services.NotificationInformService"/>
+<service android:name="com.notikum.notifypassive.services.SendBulkDataIntentService"/>
 ```
 5) Reference Google Play Services Library:  In eclipse goto File -> New -> Other and from the list select "Android Project from Existing Code" then select androidsdk -> extras -> google ->
 	google_play_services -> libproject directory and click Ok .
